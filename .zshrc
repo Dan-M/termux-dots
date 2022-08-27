@@ -106,7 +106,10 @@ export LANG=en_US.UTF-8
 export LC_ALL= 
 export LC_CTYPE=
 
-alias ll=ls -al
+alias ll='exa -l --color=always --group-directories-first'
+alias ls='exa -al --color=always --group-directories-first'
+alias lt='exa -aT --color=always --group-directories-first'
 alias c=clear
+alias vim=nvim
 alias dotfiles="git --git-dir=$HOME/termux-dots --work-tree=$HOME"
 
