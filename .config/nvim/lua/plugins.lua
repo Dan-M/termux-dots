@@ -25,5 +25,23 @@ require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
   }
+  use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+  }
+  use { 
+    "williamboman/mason.nvim",
+    config = function() require("mason").setup {} end
+  }
+  use { 
+    "williamboman/mason-lspconfig.nvim",
+    config = function() require("mason-lspconfig").setup {} end,
+    after = "mason.nvim"
+  }
+  use { 
+    "neovim/nvim-lspconfig",
+    after = "mason-lspconfig.nvim"
+  }
+ 
 end)
 

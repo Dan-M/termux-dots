@@ -4,6 +4,8 @@ require('plugins')
 vim.cmd([[
   augroup packer_user_config
     autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerInstall
+    autocmd BufWritePost plugins.lua source <afile> | PackerClean
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
 ]])
@@ -13,8 +15,6 @@ local g = vim.g
 g.mapleader = ' '
 
 g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
-g.fzf_preview_window = {}
-
 
 vim.cmd [[colorscheme catppuccin]]
 
@@ -24,6 +24,7 @@ opt.clipboard = { "unnamedplus" }
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
+opt.tabstop = 2
 opt.smartindent = true
 opt.expandtab = true
 opt.hidden = true -- background buffers
